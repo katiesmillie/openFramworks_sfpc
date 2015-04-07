@@ -23,6 +23,7 @@ public:
     ofxPanel panel;
     ofParameter <int> nPoints;
     ofParameter <int> resample;
+    ofParameter <int> radius;
     
     void drawStar();
     
