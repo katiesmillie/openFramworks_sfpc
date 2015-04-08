@@ -8,9 +8,15 @@ void ofApp::setup(){
     
     panel.setup("star", "settings.xml", 510, 10);
     
-    panel.add(nPoints.set("nPoints", 6, 4, 10));
-    panel.add(radius.set("radius", 100, 40, 400));
-    panel.add(resample.set("resample", 3, 2, 7));
+    
+    panel.add(random.set("random", 0, 0, 200));
+    panel.add(nPoints.set("nPoints", 6, 4, 20));
+    panel.add(radius.set("radius", 200, 80, 400));
+    panel.add(resample.set("resample", 4, 2, 10));
+    panel.add(twist.set("twist", 0, 0, 9));
+    panel.add(color.set("color",ofColor(100,200,200),ofColor(0,0),ofColor(255,255)));
+
+
     
 }
 
@@ -18,18 +24,18 @@ void ofApp::setup(){
 void ofApp::drawStar(){
     
     ofPoint startingPoint;
-    startingPoint.set(250,250);
+    startingPoint.set(500,500);
     
     float angleDivision = TWO_PI / (float)nPoints;
     float outerRadius = radius;
-    float innerRadius = outerRadius / 3;
+    float innerRadius = outerRadius / 2.5;
     
     allPts.clear();
     
     for (int i = 0; i < nPoints; i++){
         
         float outerAngle = angleDivision * i;
-        float innerAngle = angleDivision * i + angleDivision*0.5;
+        float innerAngle = angleDivision * i + angleDivision*0.5 + twist;
         
         ofPoint outerPt = startingPoint + outerRadius * ofPoint(cos(outerAngle), sin(outerAngle));
         allPts.push_back(outerPt);
@@ -49,8 +55,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    ofSetColor(100,200,200);
-    ofSetLineWidth(4);
+    ofSetColor(color);
     drawStar();
 
     ofPolyline line;
@@ -59,7 +64,9 @@ void ofApp::draw(){
             line.addVertex(allPts[i]);
         }
     
-        line = line.getResampledBySpacing(6);
+        line.close();
+    
+        line = line.getResampledBySpacing(resample);
         line = line.getSmoothed(20);
 
     
@@ -71,9 +78,7 @@ void ofApp::draw(){
         
         ofEndShape();
     
-        line.close();
-    
-       panel.draw();
+        panel.draw();
 }
 
 

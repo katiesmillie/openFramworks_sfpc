@@ -24,6 +24,11 @@ public:
     ofParameter <int> nPoints;
     ofParameter <int> resample;
     ofParameter <int> radius;
+    ofParameter <float> twist;
+    ofParameter <ofColor> color;
+    ofParameter <int> random;
+
+
     
     void drawStar();
     
