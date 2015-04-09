@@ -24,16 +24,15 @@ public:
     ofParameter <int> nPoints;
     ofParameter <int> resample;
     ofParameter <int> radius;
+    ofParameter <int> nucleus;
+    ofParameter <int> smoothing;
     ofParameter <float> twist;
     ofParameter <ofColor> color;
-    ofParameter <int> random;
 
-
-    
     void drawStar();
     
     vector < ofPoint > allPts;
 
-    
+    ofPoint startingPoint;
     
 };
