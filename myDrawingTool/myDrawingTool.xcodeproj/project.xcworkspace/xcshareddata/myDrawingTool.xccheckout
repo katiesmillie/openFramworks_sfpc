@@ -10,22 +10,26 @@
 	<string>myDrawingTool</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2AAD740444AEC8A286E9F7C7D51CAB95ABA2B60B</key>
+		<string>https://github.com/katiesmillie/openFramworks_sfpc.git</string>
 		<key>E96BFD55A1015A4C506D2F5055B529EE5120CB8D</key>
 		<string>https://github.com/katiesmillie/openFrameworks_sfpc.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>apps/myApps/myDrawingTool/myDrawingTool.xcodeproj</string>
+	<string>myDrawingTool/myDrawingTool.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>2AAD740444AEC8A286E9F7C7D51CAB95ABA2B60B</key>
+		<string>../../..</string>
 		<key>E96BFD55A1015A4C506D2F5055B529EE5120CB8D</key>
-		<string>../../../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/katiesmillie/openFrameworks_sfpc.git</string>
+	<string>https://github.com/katiesmillie/openFramworks_sfpc.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E96BFD55A1015A4C506D2F5055B529EE5120CB8D</string>
+	<string>2AAD740444AEC8A286E9F7C7D51CAB95ABA2B60B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>E96BFD55A1015A4C506D2F5055B529EE5120CB8D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>openFrameworks_sfpc</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2AAD740444AEC8A286E9F7C7D51CAB95ABA2B60B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mySharedApps</string>
 		</dict>
 	</array>
 </dict>
