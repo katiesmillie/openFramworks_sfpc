@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "circle.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,9 +22,8 @@ class ofApp : public ofBaseApp{
 
     
         ofPoint pos;
-        float red;
-        float green;
-        float blue;
+        vector <circle> circles;
+        float numCircles;
 
 		
 };

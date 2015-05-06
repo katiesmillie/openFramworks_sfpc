@@ -3,47 +3,65 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetFrameRate(10);
-    red = 100;
-    blue = 100;
-    green = 100;
+//    ofSetFrameRate(10);
+    track.loadSound("hollaback.mp3");
+    track.setLoop( true );
+    track.play();
     
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    red = ofRandom(150,200);
+    
+	ofSoundUpdate();	    
+    float frequency = .6;
+    
+    red = sin(frequency*ofGetElapsedTimef() + 4) * 67 + 188;
+    green = sin(frequency*ofGetElapsedTimef() + 6) * 67 + 188;
+    blue = sin(frequency*ofGetElapsedTimef() + 8) * 67 + 188;
+    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    ofBackground(0, 0, 0);
+    ofBackground(0);
+//    ofBackground(red, green, blue);
+    ofNoFill();
     ofSetCircleResolution(100);
     
-    float x = ofGetWindowWidth()/2;
-    float y = ofGetWindowHeight()/2;
+    pos.set(100,100);
     
-    pos.set(x,y);
-    
-    int numRings = 20;
+    int numRings = 25;
     float angle = TWO_PI/numRings;
     
-    float sinValue = sin(ofGetElapsedTimef()/TWO_PI);
-    float cosValue = cos(ofGetElapsedTimef()/TWO_PI);
-
+    float sinValue = sin(ofGetElapsedTimef()/2);
+    float cosValue = cos(ofGetElapsedTimef()/2);
+    float radius = ofNoise(ofGetElapsedTimef())*50;
+    
     
     for (int i = 0; i < numRings; i++){
         
-        ofSetColor(red, green, blue, 50);
+        ofSetColor(red, green, blue);
         
-        float radius = ofNoise(ofGetElapsedTimef()+i*2)*500;
         float centerx = pos.x + radius*cos(angle*i);
         float centery = pos.y + radius*sin(angle*i);
+        float spacing = 200;
         
-        ofCircle(centerx, centery, 1+sinValue*100);
+        for (int i = 0; i < 6; i++) {
+            
+            float tempx = centerx;
     
+            for (int i = 0; i < 6; i++){
+                ofCircle(tempx, centery, (1+sinValue)*40);
+                ofCircle(tempx+spacing, centery, (1+cosValue)*40);
+                tempx += spacing*2;
+            }
+            centery += spacing;
+        }
     }
 }
 

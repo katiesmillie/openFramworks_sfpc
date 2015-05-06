@@ -2,51 +2,55 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetFrameRate(50);
+    
+    ofSetFrameRate(2);
+    
+    float x = ofGetWindowWidth()/2;
+    float y = ofGetWindowHeight()/2;
+    pos.set(x,y);
+    numCircles = 15;
+
+    for (int i = 0; i < numCircles; i++){
+        circle myCircle;
+        circles.push_back(myCircle);
+    }
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
 
+    
+
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    ofBackground(255,100,100);
-    ofNoFill();
+    ofBackground(0, 0, 0);
     ofSetCircleResolution(100);
-    ofSetLineWidth(2);
-    
-    pos.set(100,100);
-    
-    int numRings = 20;
-    float angle = TWO_PI/numRings;
-    
-    float sinValue = sin(ofGetElapsedTimef()/2);
-    float cosValue = cos(ofGetElapsedTimef()/2);
-    float radius = ofNoise(ofGetElapsedTimef())*50;
     
     
-    for (int i = 0; i < numRings; i++){
+    
+    float angle = TWO_PI/numCircles;
+    float sinValue = sin(ofGetElapsedTimef()/TWO_PI);
+    float cosValue = cos(ofGetElapsedTimef()/TWO_PI);
+    float fun = ofRandom(5,15);
+    
+    for (int i = 0; i < numCircles; i++){
         
-        float centerx = pos.x + radius*cos(angle*i);
-        float centery = pos.y + radius*sin(angle*i);
-        float spacing = 200;
+        float radius = ofNoise(ofGetElapsedTimef()+i*2)*500;
+        float centerx = pos.x + radius*cos(angle*i*fun);
+        float centery = pos.y + radius*sin(angle*i*fun);
         
-        for (int i = 0; i < 6; i++) {
-            
-            float tempx = centerx;
-    
-            for (int i = 0; i < 6; i++){
-                ofCircle(tempx, centery, (1+sinValue+i)*50);
-                ofCircle(tempx+spacing, centery, (1+cosValue+i)*50);
-                tempx += spacing*2;
-            }
-            centery += spacing;
-        }
+        circles[i].draw(centerx, centery, 1+sinValue*100, i/numCircles);
+        
     }
+    
+    
+ 
 }
 
 //--------------------------------------------------------------
