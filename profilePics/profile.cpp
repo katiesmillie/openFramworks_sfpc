@@ -12,11 +12,11 @@
 
 
 //----------------------------
-void profile::setup(string file, string name, float hours){
+void profile::setup(string file, string _name, float _hours){
         
     image.loadImage(file);
-    hours = hours;
-    name = name;
+    hours = _hours;
+    name = _name;
     
 }
 
@@ -35,12 +35,15 @@ void profile::draw(float x, float y){
 //          float radius = ofMap( brightness, 0, 255, 1, 3 );
             
             ofSetColor(myColor);
-            
+//            float rect = ofNoise(ofGetElapsedTimef())*3;
         
             ofRect(i+x,j+y,2,4);
+
         }
     }
 
 }
 
 //----------------------------
+
+

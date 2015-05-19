@@ -20,7 +20,7 @@ class profile {
     
 public:
     
-    void setup(string file, string name, float hours);
+    void setup(string file, string _name, float _hours);
     void draw(float x, float y);
     
     

@@ -1,0 +1,6 @@
+ofxGui
+ofxKinect
+ofxOsc
+ofxFont
+ofxTextInputField
+ofxTrueTypeFontUL2

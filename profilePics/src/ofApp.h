@@ -28,4 +28,9 @@ class ofApp : public ofBaseApp{
         int ppl;
         float gft;
 		
+        ofTrueTypeFont font;
+    
+        vector < ofPoint > points;
+    
+        
 };

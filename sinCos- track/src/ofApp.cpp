@@ -4,7 +4,6 @@
 void ofApp::setup(){
     
 //    ofSetFrameRate(10);
-    track.loadSound("hollaback.mp3");
     track.setLoop( true );
     track.play();
     
